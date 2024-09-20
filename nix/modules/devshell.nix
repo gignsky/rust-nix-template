@@ -13,6 +13,8 @@
         config.process-compose.cargo-doc-live.outputs.package
         nil
         bacon
+        lolcat
+        wslu
       ];
     };
   };
