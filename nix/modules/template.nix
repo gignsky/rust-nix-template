@@ -19,12 +19,12 @@
         {
           name = "author";
           description = "Author name";
-          placeholder = "Sridhar Ratnakumar";
+          placeholder = "Maxwell Rupp";
         }
         {
           name = "author-email";
           description = "Author email";
-          placeholder = "srid@srid.ca";
+          placeholder = "gignsky@gignsky.com";
         }
         {
           name = "vscode";
