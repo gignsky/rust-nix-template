@@ -22,6 +22,11 @@ dont-fuck-my-build:
     git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat
     echo "No chance your build is fucked! 👍" | lolcat
 
+update:
+	just dont-fuck-my-build
+	nix flake update
+	git add flake.lock
+	git commit -m "updated flake"
 build:
     nix build
     quick-results
