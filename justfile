@@ -26,7 +26,6 @@ update:
 	just dont-fuck-my-build
 	nix flake update
 	git add flake.lock
-	git commit -m "updated flake"
 build:
     nix build
     quick-results
