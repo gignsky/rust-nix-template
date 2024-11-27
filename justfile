@@ -24,7 +24,7 @@ dont-fuck-my-build:
 
 update:
 	just dont-fuck-my-build
-	nix flake update
+	nix flake lock --update-input nixpkgs
 	git add flake.lock
 build:
     nix build
