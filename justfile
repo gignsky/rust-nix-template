@@ -10,9 +10,10 @@ run *ARGS:
     just dont-fuck-my-build
     cargo run {{ARGS}}
 
-# Run 'cargo watch' to run the project (auto-recompiles)
+# Run 'bacon' to run the project (auto-recompiles)
 watch *ARGS:
-    cargo watch -x "run -- {{ARGS}}"
+	bacon --job run -- -- {{ ARGS }}
+
 
 show:
     just dont-fuck-my-build
