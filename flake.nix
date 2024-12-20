@@ -13,8 +13,8 @@
     process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
     cargo-doc-live.url = "github:srid/cargo-doc-live";
 
-    # Dev tools
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks.flake = false;
   };
 
   outputs = inputs:
@@ -26,6 +26,5 @@
         map
           (fn: ./nix/modules/${fn})
           (attrNames (readDir ./nix/modules));
-
     };
 }
