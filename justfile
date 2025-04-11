@@ -30,3 +30,8 @@ update:
 build:
     nix build
     quick-results
+
+check:
+    just dont-fuck-my-build
+    nix flake check --impure --no-build
+    nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat'
