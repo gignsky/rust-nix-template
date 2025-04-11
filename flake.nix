@@ -15,6 +15,9 @@
 
     git-hooks.url = "github:cachix/git-hooks.nix";
     git-hooks.flake = false;
+
+    # Dev tools
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = inputs:
