@@ -9,14 +9,18 @@
         config.pre-commit.devShell # See ./nix/modules/pre-commit.nix
       ];
       packages = with pkgs; [
-        just  
+        just
         nixd # Nix language server  
-        bacon  
-        config.process-compose.cargo-doc-live.outputs.package  
-        nil  
-        lolcat  
+        bacon
+        # config.process-compose.cargo-doc-live.outputs.package  
+        nil
+        lolcat
         wslu
+        #add quickresults one day
       ];
+      shellHook = ''
+        echo "welcome to the rust development environment" | lolcat
+      '';
     };
   };
 }
