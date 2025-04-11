@@ -24,7 +24,7 @@
         {
           name = "author-email";
           description = "Author email";
-          placeholder = "gignsky@gignsky.com";
+          placeholder = "gig@gignsky.com";
         }
         {
           name = "vscode";
@@ -42,7 +42,7 @@
           name = "nix-template";
           description = "Keep the flake template in the project";
           paths = [ "**/template.nix" ];
-          value = false;
+          value = true;
         }
       ];
       tests = {
