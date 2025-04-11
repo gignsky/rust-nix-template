@@ -14,10 +14,20 @@ run *ARGS:
 watch *ARGS:
 	bacon --job run -- -- {{ ARGS }}
 
+om *ARGS:
+    nix run github:juspay/omnix -- {{ ARGS }}
 
 show:
     just dont-fuck-my-build
-    nix run github:juspay/omnix -- om show .
+    just om show .
+
+health:
+    just dont-fuck-my-build
+    just om health .
+
+clean:
+    cargo clean
+    rm -rfv results
 
 dont-fuck-my-build:
     git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat
@@ -27,6 +37,7 @@ update:
 	just dont-fuck-my-build
 	nix flake lock --update-input nixpkgs
 	git add flake.lock
+
 build:
     nix build
     quick-results
