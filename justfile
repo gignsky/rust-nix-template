@@ -17,7 +17,7 @@ watch *ARGS:
 
 show:
     just dont-fuck-my-build
-    om show .
+    nix run github:juspay/omnix -- om show .
 
 dont-fuck-my-build:
     git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat
