@@ -5,4 +5,15 @@
     ],
     // https://twitter.com/sridca/status/1674947342607216641
     // "editor.inlayHints.enabled": "offUnlessPressed",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        ".direnv": true,
+        ".gitignore": true,
+        ".envrc": true
+    },
+    "explorerExclude.backup": {}
 }
