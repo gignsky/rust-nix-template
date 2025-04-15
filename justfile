@@ -26,8 +26,8 @@ health:
     just om health .
 
 clean:
-    cargo clean
     rm -rfv results
+    cargo clean
 
 dont-fuck-my-build:
     git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat
