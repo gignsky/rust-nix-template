@@ -35,8 +35,12 @@ dont-fuck-my-build:
 
 update:
 	just dont-fuck-my-build
+	just cargo-update
 	nix flake lock --update-input nixpkgs
 	git add flake.lock
+
+cargo-update:
+	cargo update
 
 build:
     nix build
