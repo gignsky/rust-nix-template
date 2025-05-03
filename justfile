@@ -44,6 +44,7 @@ update-no-commit:
 	nix flake update
 
 build *ARGS:
+	just dont-fuck-my-build
 	nix build {{ ARGS }}
 	quick-results
 
