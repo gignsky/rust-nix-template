@@ -68,11 +68,11 @@
         "vscode-server": "vscode-server"
       },
       "locked": {
-        "lastModified": 1746302879,
-        "narHash": "sha256-mi+9Y3TGi/daxH88F0tDV4IUGk01YAnstBdEAIvlAQY=",
+        "lastModified": 1746310153,
+        "narHash": "sha256-esa4ehZIHdiK7ok9s/7Qgt8a++FAEqwDpt6Aru0lkkY=",
         "owner": "gignsky",
         "repo": "dotfiles",
-        "rev": "f55b337caf9cbbfaa3d67691518e014a7fee1a62",
+        "rev": "f122697c1238a60c9b54a856d4e62356d06bfbd7",
         "type": "github"
       },
       "original": {
@@ -303,11 +303,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1745716251,
-        "narHash": "sha256-fI6UzabnzH2mU8e3c5fZPQiWziGERhexCMmS8Vv5ytI=",
+        "lastModified": 1743296961,
+        "narHash": "sha256-b1EdN3cULCqtorQ4QeWgLMrd5ZGOjLSLemfa00heasc=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "25999e7d9c47c384675bea8478c66386a9be9c65",
+        "rev": "e4822aea2a6d1cdd36653c134cacfd64c97ff4fa",
         "type": "github"
       },
       "original": {
