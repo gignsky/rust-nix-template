@@ -43,8 +43,8 @@ update-no-commit:
 	cargo-update --no-commit
 	nix flake update
 
-build:
-	nix build
+build *ARGS:
+	nix build {{ ARGS }}
 	quick-results
 
 check *ARGS:
