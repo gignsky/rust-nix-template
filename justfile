@@ -49,10 +49,7 @@ cargo-update-no-commit:
 cargo-update:
 	cargo update
 	git add Cargo.lock
-
-test:
-	echo test | cowsay | lolcat
-
+	
 build:
 	nix build
 	quick-results
