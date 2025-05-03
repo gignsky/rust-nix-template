@@ -24,7 +24,7 @@
         inputs.dotfiles.packages.${system}.cargo-update
       ];
       shellHook = ''
-        echo "welcome to the rust development environment" | lolcat
+        echo "welcome to the rust development environment" | ${pkgs.cowsay}/bin/cowsay
       '';
     };
   };
