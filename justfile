@@ -36,12 +36,18 @@ dont-fuck-my-build:
 update:
 	just dont-fuck-my-build
 	cargo-update
-	nix flake update --commit-lock-file
+	just update-flake
 
 update-no-commit:
 	just dont-fuck-my-build
 	cargo-update --no-commit
-	nix flake update
+	just update-flake-no-commit
+
+update-flake:
+	nix flake update --commit-lock-file
+
+update-flake-no-commit:
+	nix flake update --commit-lock-file
 
 build *ARGS:
 	just dont-fuck-my-build
