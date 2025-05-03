@@ -11,6 +11,8 @@
       url = "github:juspay/rust-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Dev tools
     # process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
     # cargo-doc-live.url = "github:srid/cargo-doc-live";
 
@@ -19,7 +21,6 @@
       flake = false;
     };
 
-    # Dev tools
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
