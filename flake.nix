@@ -16,7 +16,7 @@
 
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
-      git-hooks.flake = false;
+      flake = false;
     };
 
     # Dev tools
