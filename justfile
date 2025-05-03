@@ -47,7 +47,7 @@ update-flake:
 	nix flake update --commit-lock-file
 
 update-flake-no-commit:
-	nix flake update --commit-lock-file
+	nix flake update
 
 build *ARGS:
 	just dont-fuck-my-build
