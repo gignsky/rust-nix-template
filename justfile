@@ -37,10 +37,18 @@ update:
 	just dont-fuck-my-build
 	just cargo-update
 	nix flake update --commit-lock-file
-	git add flake.lock
+
+update-no-comit:
+	just dont-fuck-my-build
+	just cargo-update-no-commit
+	nix flake update
+
+cargo-update-no-commit:
+	cargo update
 
 cargo-update:
 	cargo update
+    git add Cargo.lock
 
 build:
     nix build
