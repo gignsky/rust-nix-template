@@ -49,7 +49,8 @@ cargo-update-no-commit:
 cargo-update:
 	cargo update
 	git add Cargo.lock
-	
+	git commit -m "updated Cargo.lock packages via justfile (just cargo-update)"
+
 build:
 	nix build
 	quick-results
