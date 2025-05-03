@@ -62,3 +62,7 @@ check *ARGS:
 
 generate:
 	cargo generate ratatui/templates
+
+# Auto-format the source tree
+fmt:
+	treefmt
