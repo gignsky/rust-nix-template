@@ -7,13 +7,13 @@
     // "editor.inlayHints.enabled": "offUnlessPressed",
     "files.exclude": {
         "**/.git": true,
-        "**/.svn": true,
+        "**/.svn": false,
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         ".direnv": true,
         ".gitignore": true,
-        ".envrc": true
+        ".envrc": false
     },
     "explorerExclude.backup": {},
     "editor.formatOnSaveMode": "modificationsIfAvailable",
