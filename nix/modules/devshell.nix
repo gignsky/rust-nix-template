@@ -16,6 +16,7 @@
         nil
         lolcat
         wslu
+        cargo-generate
         #add quickresults one day
       ];
       shellHook = ''
