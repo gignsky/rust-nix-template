@@ -18,6 +18,7 @@ struct Args {
     name: Option<String>,
 }
 
+// Non-TUI Stuff
 // fn main() {
 //     let args = Args::parse();
 //     if args.verbose {
@@ -29,6 +30,7 @@ struct Args {
 //     );
 // }
 
+// TUI Stuff
 fn main() -> Result<()> {
     color_eyre::install()?;
     let terminal = ratatui::init();
