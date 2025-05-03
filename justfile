@@ -59,3 +59,6 @@ check *ARGS:
 	just dont-fuck-my-build
 	nix flake check --impure --no-build {{ ARGS }}
 	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat'
+
+generate:
+	cargo generate ratatui/templates
