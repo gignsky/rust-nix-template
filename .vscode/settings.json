@@ -16,5 +16,7 @@
         ".envrc": true
     },
     "explorerExclude.backup": {},
-    "editor.formatOnSaveMode": "modificationsIfAvailable"
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "nix.enableLanguageServer": true,
+    "nix.formatterPath": "nixfmt"
 }
