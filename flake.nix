@@ -15,6 +15,8 @@
     # process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
     # cargo-doc-live.url = "github:srid/cargo-doc-live";
 
+    nix-topology.url = "github:oddlama/nix-topology";
+
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       flake = false;
