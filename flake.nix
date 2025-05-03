@@ -1,7 +1,7 @@
 {
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -29,7 +29,6 @@
     dotfiles = {
       url = "github:gignsky/dotfiles";
       flake = true;
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
