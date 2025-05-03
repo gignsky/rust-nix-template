@@ -48,6 +48,9 @@ build *ARGS:
 	nix build {{ ARGS }}
 	quick-results
 
+top:
+	just build .#topology.$system.config.output
+
 check *ARGS:
 	just dont-fuck-my-build
 	nix flake check --impure --no-build {{ ARGS }}
