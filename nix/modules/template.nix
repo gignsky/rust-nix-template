@@ -42,7 +42,7 @@
           name = "nix-template";
           description = "Keep the flake template in the project";
           paths = [ "**/template.nix" ];
-          value = true;
+          value = false;
         }
       ];
       tests = {
