@@ -28,6 +28,7 @@ health:
 clean:
 	rm -rfv result
 	cargo clean
+	quick-results
 
 dont-fuck-my-build:
 	git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat
