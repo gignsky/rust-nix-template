@@ -12,6 +12,22 @@
       "original": {
         "owner": "srid",
         "repo": "cargo-doc-live",
+        "rev": "b09d5d258d2498829e03014931fc19aed499b86f",
+        "type": "github"
+      }
+    },
+    "cargo-doc-live_2": {
+      "locked": {
+        "lastModified": 1724704668,
+        "narHash": "sha256-kJFYXlWUodg5WhJ0NuvrP0mCvOT/2AOIo8oGeYLXocs=",
+        "owner": "srid",
+        "repo": "cargo-doc-live",
+        "rev": "b09d5d258d2498829e03014931fc19aed499b86f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "cargo-doc-live",
         "type": "github"
       }
     },
@@ -303,11 +319,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1743296961,
-        "narHash": "sha256-b1EdN3cULCqtorQ4QeWgLMrd5ZGOjLSLemfa00heasc=",
+        "lastModified": 1745716251,
+        "narHash": "sha256-fI6UzabnzH2mU8e3c5fZPQiWziGERhexCMmS8Vv5ytI=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "e4822aea2a6d1cdd36653c134cacfd64c97ff4fa",
+        "rev": "25999e7d9c47c384675bea8478c66386a9be9c65",
         "type": "github"
       },
       "original": {
@@ -447,12 +463,30 @@
         "type": "github"
       }
     },
+    "process-compose-flake_2": {
+      "locked": {
+        "lastModified": 1724606023,
+        "narHash": "sha256-rdGeNa/lCS8E1lXzPqgl+vZUUvnbEZT11Bqkx5jfYug=",
+        "owner": "Platonic-Systems",
+        "repo": "process-compose-flake",
+        "rev": "f6ce9481df9aec739e4e06b67492401a5bb4f0b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Platonic-Systems",
+        "repo": "process-compose-flake",
+        "rev": "f6ce9481df9aec739e4e06b67492401a5bb4f0b1",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "cargo-doc-live": "cargo-doc-live",
         "dotfiles": "dotfiles",
         "flake-parts": "flake-parts_2",
         "git-hooks": "git-hooks_2",
         "nixpkgs": "nixpkgs_6",
+        "process-compose-flake": "process-compose-flake_2",
         "rust-flake": "rust-flake_2",
         "systems": "systems_3",
         "treefmt-nix": "treefmt-nix_3"
@@ -607,7 +641,7 @@
     },
     "tarballer": {
       "inputs": {
-        "cargo-doc-live": "cargo-doc-live",
+        "cargo-doc-live": "cargo-doc-live_2",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
         "nixpkgs": "nixpkgs_5",

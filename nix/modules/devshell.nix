@@ -12,7 +12,7 @@
         just
         nixd # Nix language server
         bacon
-        # config.process-compose.cargo-doc-live.outputs.package
+        config.process-compose.cargo-doc-live.outputs.package
         nil
         lolcat
         wslu
