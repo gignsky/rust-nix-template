@@ -2,7 +2,6 @@
     "recommendations": [
         "mkhl.direnv",
         "tamasfe.even-better-toml",
-        "fill-labs.dependi",
         "peterschmalfeldt.explorer-exclude",
         "mhutchie.git-graph",
         "arturock.gitstash",
