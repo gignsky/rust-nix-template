@@ -17,6 +17,8 @@
         lolcat
         wslu
         cargo-generate
+        lazygit
+        gitflow
 
         # dotfiles programs
         inputs.dotfiles.packages.${system}.quick-results
