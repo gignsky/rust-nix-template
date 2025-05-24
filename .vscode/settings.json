@@ -13,7 +13,8 @@
         "**/Thumbs.db": true,
         ".direnv": true,
         ".gitignore": true,
-        ".envrc": true
+        ".envrc": true,
+        "**/.cspell": true
     },
     "explorerExclude.backup": {},
     "editor.formatOnSaveMode": "modificationsIfAvailable",
@@ -35,5 +36,13 @@
     "evenBetterToml.formatter.indentEntries": true,
     "evenBetterToml.formatter.indentTables": true,
     "evenBetterToml.formatter.trailingNewline": true,
-    "evenBetterToml.schema.links": true
+    "evenBetterToml.schema.links": true,
+    "cSpell.customDictionaries": {
+        "custom-dictionary-workspace": {
+            "name": "custom-dictionary-workspace",
+            "path": "${workspaceFolder:wrap}/.cspell/custom-dictionary-workspace.txt",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    }
 }
