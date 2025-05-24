@@ -6,6 +6,7 @@ on:
             - release/*
             - hotfix/*
             - bugfix/*
+            - main
             
     workflow_dispatch:
 
