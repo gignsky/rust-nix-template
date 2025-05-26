@@ -21,7 +21,7 @@ show:
 
 # Ensure no untracked or uncommitted .nix files are left out
 dont-fuck-my-build:
-	git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat
+	git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat 2> /dev/null
 	echo "No chance your build is fucked! 👍" | lolcat
 
 # Run the 'omnix' tool with the provided arguments
@@ -101,4 +101,4 @@ cbuildr *ARGS:
 check *ARGS:
 	just dont-fuck-my-build
 	nix flake check --impure --no-build {{ ARGS }}
-	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat'
+	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat 2> /dev/null'
