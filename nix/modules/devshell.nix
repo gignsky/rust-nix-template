@@ -26,7 +26,7 @@
         inputs.dotfiles.packages.${system}.cargo-update
       ];
       shellHook = ''
-        echo "welcome to the rust development environment for the rust-nix-template package" | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat 2> /dev/null";
+        echo "welcome to the rust development environment for the rust-nix-template package" | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat 2> /dev/null;
       '';
     };
   };
