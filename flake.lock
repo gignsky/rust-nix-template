@@ -3472,8 +3472,7 @@
         "nixpkgs": "nixpkgs_38",
         "process-compose-flake": "process-compose-flake_10",
         "rust-flake": "rust-flake_10",
-        "systems": "systems_23",
-        "treefmt-nix": "treefmt-nix_19"
+        "systems": "systems_23"
       }
     },
     "rust-flake": {
@@ -4819,26 +4818,6 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "rev": "29ec5026372e0dec56f890e50dbe4f45930320fd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "treefmt-nix_19": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1749194973,
-        "narHash": "sha256-eEy8cuS0mZ2j/r/FE0/LYBSBcIs/MKOIVakwHVuqTfk=",
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "rev": "a05be418a1af1198ca0f63facb13c985db4cb3c5",
         "type": "github"
       },
       "original": {
