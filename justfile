@@ -97,8 +97,14 @@ cbuildr *ARGS:
 	cargo build --release {{ ARGS }}
 	quick-results
 
-# Check the project using Nix flake and other tools
+# Check the project using Nix flake and other tools (skips template.nix)
 check *ARGS:
+	just dont-fuck-my-build
+	NIX_SKIP_TEMPLATE=1 nix flake check --impure --no-build {{ ARGS }}
+	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat 2> /dev/null'
+
+# Check the project including template.nix (for debugging template issues)
+check-template *ARGS:
 	just dont-fuck-my-build
 	nix flake check --impure --no-build {{ ARGS }}
 	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat 2> /dev/null'

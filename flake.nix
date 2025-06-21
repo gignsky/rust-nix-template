@@ -37,9 +37,16 @@
       systems = import inputs.systems;
 
       # See ./nix/modules/*.nix for the modules that are imported here.
+      # Conditionally exclude template.nix during flake checks
       imports = with builtins;
-        map
-          (fn: ./nix/modules/${fn})
-          (attrNames (readDir ./nix/modules));
+        let
+          allModules = attrNames (readDir ./nix/modules);
+          # Skip template.nix if NIX_SKIP_TEMPLATE is set (useful for flake check)
+          filteredModules =
+            if (getEnv "NIX_SKIP_TEMPLATE" != "")
+            then filter (fn: fn != "template.nix") allModules
+            else allModules;
+        in
+        map (fn: ./nix/modules/${fn}) filteredModules;
     };
 }
