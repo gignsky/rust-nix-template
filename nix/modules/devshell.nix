@@ -23,6 +23,8 @@
         # dotfiles programs
         inputs.dotfiles.packages.${system}.quick-results
         inputs.dotfiles.packages.${system}.upjust
+        inputs.dotfiles.packages.${system}.upspell
+        inputs.dotfiles.packages.${system}.upflake
         inputs.dotfiles.packages.${system}.cargo-update
       ];
       shellHook = ''
