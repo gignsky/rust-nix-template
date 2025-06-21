@@ -3,7 +3,14 @@ default:
 
 # Auto-format the source tree
 fmt:
-	treefmt
+	cargo fmt
+	find . -name "*.nix" -not -path "./result*" | xargs nixpkgs-fmt
+
+# Check formatting without applying changes
+fmt-check:
+	cargo fmt -- --check
+	find . -name "*.nix" -not -path "./result*" | xargs nixpkgs-fmt --check
+	nix-shell -p lolcat --run 'echo "[FMT CHECK] Finished." | lolcat 2> /dev/null'
 
 # Run 'cargo run' on the project
 run *ARGS:
@@ -100,11 +107,44 @@ cbuildr *ARGS:
 # Check the project using Nix flake and other tools (skips template.nix)
 check *ARGS:
 	just dont-fuck-my-build
-	NIX_SKIP_TEMPLATE=1 nix flake check --impure --no-build {{ ARGS }}
+	NIX_SKIP_TEMPLATE=1 nix flake check --impure {{ ARGS }}
 	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat 2> /dev/null'
 
 # Check the project including template.nix (for debugging template issues)
 check-template *ARGS:
 	just dont-fuck-my-build
-	nix flake check --impure --no-build {{ ARGS }}
+	nix flake check --impure {{ ARGS }}
 	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat 2> /dev/null'
+
+# Run all tests (Rust + Nix)
+test:
+	just dont-fuck-my-build
+	scripts/test-all.sh
+	nix-shell -p lolcat --run 'echo "[TEST] All tests completed." | lolcat 2> /dev/null'
+
+# Run template-specific tests
+test-template:
+	just dont-fuck-my-build
+	scripts/test-template.sh
+	nix-shell -p lolcat --run 'echo "[TEMPLATE TEST] Finished." | lolcat 2> /dev/null'
+
+# Run Rust tests only
+test-rust:
+	cargo test --all-features
+	nix-shell -p lolcat --run 'echo "[RUST TEST] Finished." | lolcat 2> /dev/null'
+
+# Run Rust clippy
+clippy:
+	cargo clippy --all-targets --all-features -- -D warnings
+	nix-shell -p lolcat --run 'echo "[CLIPPY] Finished." | lolcat 2> /dev/null'
+
+# Simulate CI locally
+ci:
+	just dont-fuck-my-build
+	scripts/ci-simulation.sh
+	nix-shell -p lolcat --run 'echo "[CI SIMULATION] Finished." | lolcat 2> /dev/null'
+
+# Run pre-commit flake check (for git hooks)
+pre-commit-check:
+	scripts/pre-commit-flake-check.sh
+	nix-shell -p lolcat --run 'echo "[PRE-COMMIT] Finished." | lolcat 2> /dev/null'
