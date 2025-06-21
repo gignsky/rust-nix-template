@@ -1,0 +1,41 @@
+# yamllint disable rule:truthy
+---
+name: Template & Flake Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  template-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - name: Run template-specific flake check
+        run: nix flake check --show-trace --impure --no-build
+      - name: Test omnix template processing
+        run: |
+          nix --accept-flake-config run github:juspay/omnix -- ci --no-build
+
+  regular-flake-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - name: Run regular flake check (skip template)
+        run: NIX_SKIP_TEMPLATE=1 nix flake check --show-trace --impure --no-build
