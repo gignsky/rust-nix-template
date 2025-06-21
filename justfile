@@ -22,7 +22,7 @@ show:
 # Ensure no untracked or uncommitted .nix files are left out
 dont-fuck-my-build:
 	git ls-files --others --exclude-standard -- '*.nix' | xargs -r git add -v | lolcat 2> /dev/null
-	echo "No chance your build is fucked! 👍" | lolcat
+	nix-shell -p lolcat --run 'echo "No chance your build is fucked! 👍" | lolcat 2> /dev/null'
 
 # Run the 'omnix' tool with the provided arguments
 om *ARGS:
@@ -97,8 +97,14 @@ cbuildr *ARGS:
 	cargo build --release {{ ARGS }}
 	quick-results
 
-# Check the project using Nix flake and other tools
+# Check the project using Nix flake and other tools (skips template.nix)
 check *ARGS:
+	just dont-fuck-my-build
+	NIX_SKIP_TEMPLATE=1 nix flake check --impure --no-build {{ ARGS }}
+	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat 2> /dev/null'
+
+# Check the project including template.nix (for debugging template issues)
+check-template *ARGS:
 	just dont-fuck-my-build
 	nix flake check --impure --no-build {{ ARGS }}
 	nix-shell -p lolcat --run 'echo "[CHECK] Finished." | lolcat 2> /dev/null'
