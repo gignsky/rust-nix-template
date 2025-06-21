@@ -146,9 +146,73 @@ just build
 We also provide a [`justfile`](https://just.systems/) for Makefile'esque commands to be run inside of the devShell.
 You can run `$ just` inside `$ nix develop` to see all available just outputs
 
+## Testing
+
+This template includes comprehensive testing infrastructure adapted from [.dotfiles](https://github.com/gignsky/dotfiles) configurations:
+
+### Available Test Commands
+
+```bash
+# Run all tests (Rust + Nix)
+just test
+
+# Run only Rust tests
+just test-rust
+
+# Run template-specific tests (includes template.nix)
+just test-template
+
+# Run clippy linting
+just clippy
+
+# Check Rust formatting
+just fmt-check
+
+# Simulate CI locally
+just ci
+
+# Run pre-commit flake check
+just pre-commit-check
+```
+
+### Manual Testing
+
+```bash
+# Test Rust functionality
+cargo test --all-features
+cargo clippy --all-targets --all-features -- -D warnings
+cargo fmt -- --check
+
+# Test Nix build system
+nix flake check --impure --no-build  # Skip template.nix
+nix flake check                       # Include template.nix
+nix build --no-link
+
+# Test template functionality
+nix --accept-flake-config run github:juspay/omnix -- ci --no-build
+```
+
+### CI/CD
+
+The project includes multiple GitHub Actions workflows:
+
+- **Cargo CI** (`check.yml`) - Runs Rust tests, formatting, and linting
+- **Nix CI** (`ci-nix.yml`) - Runs Nix flake checks and omnix CI
+- **Template Check** (`template-check.yml`) - Tests template-specific functionality
+
+### Pre-commit Hooks
+
+Pre-commit hooks are automatically configured and include:
+- `rustfmt` - Rust code formatting
+- `clippy` - Rust linting
+- `nixpkgs-fmt` - Nix code formatting  
+- `flake-check` - Custom Nix flake validation
+
 ## Tips
 
 - Run `$ just update-flake` to update all flake inputs.
 - Run `$ just update` to update all flake inputs and cargo dependencies
+- Run `$ just check` to run flake checks (automatically skips template.nix which won't be in downstream repos).
+- Run `$ just check-template` to run flake checks including template.nix (useful for debugging template issues).
 - Run `nix --accept-flake-config run github:juspay/omnix ci` to build _all_ outputs.
 - [pre-commit] hooks will automatically be setup in Nix shell. You can also run `pre-commit run -a` manually to run the hooks (e.g.: to autoformat the project tree using `rustfmt`, `nixpkgs-fmt`, etc.).
