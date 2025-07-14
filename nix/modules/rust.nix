@@ -6,7 +6,7 @@
     inputs.process-compose-flake.flakeModule
     inputs.cargo-doc-live.flakeModule
   ];
-  perSystem = { config, self', pkgs, lib, ... }: {
+  perSystem = { self', pkgs, lib, ... }: {
     rust-project.crates."rust-nix-template".crane.args = {
       buildInputs = lib.optionals pkgs.stdenv.isDarwin (
         with pkgs.darwin.apple_sdk.frameworks; [

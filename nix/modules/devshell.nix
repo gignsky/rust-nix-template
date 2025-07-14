@@ -1,11 +1,10 @@
 { inputs, ... }:
 {
-  perSystem = { config, self', pkgs, lib, ... }: {
+  perSystem = { config, self', pkgs, ... }: {
     devShells.default = pkgs.mkShell {
       name = "rust-nix-template-shell";
       inputsFrom = [
         self'.devShells.rust
-        config.treefmt.build.devShell
         config.pre-commit.devShell # See ./nix/modules/pre-commit.nix
       ];
       packages = with pkgs; [
@@ -20,9 +19,15 @@
         lazygit
         gitflow
 
+        # Formatting tools (replacing treefmt)
+        nixpkgs-fmt
+        rustfmt
+
         # dotfiles programs
         inputs.dotfiles.packages.${system}.quick-results
         inputs.dotfiles.packages.${system}.upjust
+        inputs.dotfiles.packages.${system}.upspell
+        inputs.dotfiles.packages.${system}.upflake
         inputs.dotfiles.packages.${system}.cargo-update
       ];
       shellHook = ''
