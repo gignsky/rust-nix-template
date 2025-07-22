@@ -21,7 +21,7 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
       - name: Run nix flake check
-        run: NIX_SKIP_TEMPLATE=1 nix flake check --show-trace --impure --no-build
+        run: NIX_SKIP_TEMPLATE=1 nix flake check --show-trace --impure --print-build-logs
         
   omnix-ci:
     runs-on: ubuntu-latest
