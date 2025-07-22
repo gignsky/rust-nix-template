@@ -27,21 +27,19 @@
           placeholder = "gig@gignsky.com";
         }
         {
-          name = "vscode";
-          description = "Include the VSCode settings folder (./.vscode)";
-          paths = [ ".vscode" ];
-          value = true;
-        }
-        {
           name = "github-ci";
           description = "Include GitHub Actions workflow configuration";
-          paths = [ ".github" ];
+          paths = [
+            ".github/**"
+          ];
           value = true;
         }
         {
           name = "nix-template";
           description = "Keep the flake template in the project";
-          paths = [ "**/template.nix" ];
+          paths = [
+            "**/template.nix"
+          ];
           value = false;
         }
       ];
@@ -56,8 +54,13 @@
             source = {
               "Cargo.toml" = true;
               "flake.nix" = true;
-              ".github/workflows/ci.yml" = true;
-              ".vscode" = true;
+              ".github/scripts/update_readme.py" = true;
+              ".github/workflows/ci-nix.yml" = true;
+              ".github/workflows/check-cargo-version.yml" = true;
+              ".github/workflows/check.yml" = true;
+              ".github/workflows/docs.yml" = true;
+              ".github/workflows/help-to-readme.yml" = true;
+              ".github/workflows/release.yml" = true;
               "nix/modules/template.nix" = false;
             };
             packages.default = {

@@ -1,15 +1,20 @@
 name: Update README with --help Output
 
 on:
-    pull_request:
-        branches:
-            - release/*
-            - hotfix/*
-            - bugfix/*
-            - main
+  push:
+    branches:
+      - main
+      - develop
+      - release/*
+      - hotfix/*
+      - bugfix/*  
+  pull_request:
+    branches:
+        - release/*
+        - hotfix/*
+        - bugfix/*
+        - main
             
-    workflow_dispatch:
-
 jobs:
   update-readme:
     runs-on: ubuntu-latest

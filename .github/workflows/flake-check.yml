@@ -21,14 +21,5 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
       - name: Run nix flake check
-        run: NIX_SKIP_TEMPLATE=1 nix flake check --show-trace --impure --no-build
+        run: NIX_SKIP_TEMPLATE=1 nix flake check --show-trace --impure --print-build-logs
         
-  omnix-ci:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - name: Install omnix
-        run: nix --accept-flake-config profile install "github:juspay/omnix"
-      - name: Run omnix ci
-        run: om ci --no-build
