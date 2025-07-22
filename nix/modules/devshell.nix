@@ -18,6 +18,7 @@
         cargo-generate
         lazygit
         gitflow
+        clippy
 
         # Formatting tools (replacing treefmt)
         nixpkgs-fmt
