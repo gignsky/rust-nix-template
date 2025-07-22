@@ -48,7 +48,7 @@ clean:
 
 # Update a single flake input using a nice little tool created by vimjoyer
 single-update:
-	nix run github:vimjoyer/nix-update-input
+	nix run github:gignsky/nix-update-input
 
 # Update dependencies and the Nix flake lock file, committing the changes
 update:

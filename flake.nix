@@ -21,7 +21,7 @@
     };
 
     # personal repos
-    dotfiles = {
+    gigdot = {
       url = "github:gignsky/dotfiles";
       flake = true;
     };
