@@ -31,7 +31,6 @@
           description = "Include GitHub Actions workflow configuration";
           paths = [
             ".github/**"
-            "!.github/workflows/template-check.yml"
           ];
           value = true;
         }
@@ -40,7 +39,6 @@
           description = "Keep the flake template in the project";
           paths = [
             "**/template.nix"
-            ".github/workflows/template-check.yml"
           ];
           value = false;
         }
@@ -64,7 +62,6 @@
               ".github/workflows/help-to-readme.yml" = true;
               ".github/workflows/release.yml" = true;
               "nix/modules/template.nix" = false;
-              ".github/workflows/template-check.yml" = false;
             };
             packages.default = {
               "bin/qux" = true;
