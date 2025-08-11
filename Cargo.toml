@@ -10,7 +10,7 @@ version = "0.0.0"
 
 [dependencies]
 #args parser
-clap = { version = "4.3.14", features = ["derive"] }
+clap = { version = "4.5.43", features = ["derive"] }
 
 # #tui stuff - see https://github.com/ratatui/templates?tab=readme-ov-file
 # color-eyre = "0.6.3"
