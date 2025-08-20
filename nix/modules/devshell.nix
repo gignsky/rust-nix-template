@@ -13,16 +13,19 @@ _: {
           config.pre-commit.devShell # See ./nix/modules/pre-commit.nix
         ];
         packages = with pkgs; [
-          nixd # Nix language server
+          # nix stuff
+          nixd
+          nixfmt-rfc-style
+          wslu
+
+          # rust stuff
+          rustfmt
+          clippy
           bacon
           config.process-compose.cargo-doc-live.outputs.package
-          wslu
-          gitflow
-          clippy
 
-          # Formatting tools (replacing treefmt)
-          nixpkgs-fmt
-          rustfmt
+          # utilities
+          gitflow
 
           # # gigdot programs
           # inputs.gigdot.packages.${system}.quick-results
