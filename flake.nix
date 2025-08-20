@@ -20,27 +20,30 @@
       flake = false;
     };
 
-    # personal repos
-    gigdot = {
-      url = "github:gignsky/dotfiles";
-      flake = true;
-    };
+    # # personal repos
+    # gigdot = {
+    #   url = "github:gignsky/dotfiles";
+    #   flake = true;
+    # };
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
 
       # See ./nix/modules/*.nix for the modules that are imported here.
       # Conditionally exclude template.nix during flake checks
-      imports = with builtins;
+      imports =
+        with builtins;
         let
           allModules = attrNames (readDir ./nix/modules);
           # Skip template.nix if NIX_SKIP_TEMPLATE is set (useful for flake check)
           filteredModules =
-            if (getEnv "NIX_SKIP_TEMPLATE" != "")
-            then filter (fn: fn != "template.nix") allModules
-            else allModules;
+            if (getEnv "NIX_SKIP_TEMPLATE" != "") then
+              filter (fn: fn != "template.nix") allModules
+            else
+              allModules;
         in
         map (fn: ./nix/modules/${fn}) filteredModules;
     };
