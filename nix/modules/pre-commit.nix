@@ -7,7 +7,7 @@
     pre-commit.settings = {
       hooks = {
         # Nix formatting and linting (from .dotfiles)
-        nixfmt.enable = true;
+        nixfmt-rfc-sytle.enable = true;
         statix.enable = true;
         deadnix = {
           enable = true;
