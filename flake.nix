@@ -37,10 +37,12 @@
         let
           allModules = attrNames (readDir ./nix/modules);
           # Skip template.nix if NIX_SKIP_TEMPLATE is set (useful for flake check)
-          filteredModules = if (getEnv "NIX_SKIP_TEMPLATE" != "") then
-            filter (fn: fn != "template.nix") allModules
-          else
-            allModules;
-        in map (fn: ./nix/modules/${fn}) filteredModules;
+          filteredModules =
+            if (getEnv "NIX_SKIP_TEMPLATE" != "") then
+              filter (fn: fn != "template.nix") allModules
+            else
+              allModules;
+        in
+        map (fn: ./nix/modules/${fn}) filteredModules;
     };
 }
