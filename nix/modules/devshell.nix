@@ -16,7 +16,6 @@ _: {
           # nix stuff
           nixd
           nixfmt-rfc-style
-          wslu
 
           # rust stuff
           rustfmt
