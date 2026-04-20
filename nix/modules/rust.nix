@@ -7,10 +7,11 @@
     # inputs.cargo-doc-live.flakeModule
   ];
   perSystem =
-    { self'
-    , pkgs
-    , lib
-    , ...
+    {
+      self',
+      pkgs,
+      lib,
+      ...
     }:
     {
       rust-project.crates."rust-nix-template".crane.args = {
