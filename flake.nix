@@ -2,7 +2,9 @@
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-parts = { url = "github:hercules-ci/flake-parts"; };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
     systems.url = "github:nix-systems/default";
     rust-flake = {
       url = "github:juspay/rust-flake";
@@ -27,13 +29,15 @@
     # };
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
 
       # See ./nix/modules/*.nix for the modules that are imported here.
       # Conditionally exclude template.nix during flake checks
-      imports = with builtins;
+      imports =
+        with builtins;
         let
           allModules = attrNames (readDir ./nix/modules);
           # Skip template.nix if NIX_SKIP_TEMPLATE is set (useful for flake check)
