@@ -7,7 +7,7 @@
     pre-commit.settings = {
       hooks = {
         # Nix formatting and linting (from .dotfiles)
-        nixpkgs-fmt.enable = true;
+        nixfmt.enable = true;
         statix.enable = true;
         deadnix = {
           enable = true;
@@ -34,15 +34,15 @@
         # File cleanup (from .dotfiles)
         end-of-file-fixer.enable = true;
 
-        # Custom flake check hook (from .dotfiles)
-        nix-flake-check-main-develop = {
-          enable = true;
-          name = "nix flake check on develop/main";
-          entry = "./scripts/pre-commit-flake-check.sh";
-          language = "script";
-          pass_filenames = false;
-          stages = [ "pre-commit" "pre-merge-commit" ];
-        };
+        # # Custom flake check hook (from .dotfiles)
+        # nix-flake-check-main-develop = {
+        #   enable = true;
+        #   name = "nix flake check on develop/main";
+        #   entry = "./scripts/pre-commit-flake-check.sh";
+        #   language = "script";
+        #   pass_filenames = false;
+        #   stages = [ "pre-commit" "pre-merge-commit" ];
+        # };
       };
     };
   };

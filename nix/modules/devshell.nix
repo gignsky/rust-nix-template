@@ -1,9 +1,10 @@
 _: {
   perSystem =
-    { config
-    , self'
-    , pkgs
-    , ...
+    {
+      config,
+      self',
+      pkgs,
+      ...
     }:
     {
       devShells.default = pkgs.mkShell {
@@ -16,13 +17,12 @@ _: {
           # nix stuff
           nixd
           nixfmt-rfc-style
-          wslu
 
           # rust stuff
           rustfmt
           clippy
           bacon
-          config.process-compose.cargo-doc-live.outputs.package
+          # config.process-compose.cargo-doc-live.outputs.package
 
           # utilities
           gitflow
