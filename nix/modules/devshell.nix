@@ -16,13 +16,13 @@ _: {
         packages = with pkgs; [
           # nix stuff
           nixd
-          nixfmt-rfc-style
+          nixfmt
 
           # rust stuff
           rustfmt
           clippy
           bacon
-          # config.process-compose.cargo-doc-live.outputs.package
+          config.process-compose.cargo-doc-live.outputs.package
 
           # utilities
           gitflow
